@@ -32,14 +32,31 @@ using namespace std;
 //}
 
 // tema pentru acasa quadratic equation
-//int main () {
-//    float a, b, c, x1, x2, delta;
-//    cout << "Input a, b and c";
-//    cin >> a >> b >> c;
-//
-//    delta = b * b - 4 * a * c;
-//
-//}
+int main () {
+    float a, b, c, x1, x2, delta;
+    cout << "a = ";
+    cin >> a;
+    cout << "b = ";
+    cin >> b;
+    cout << "c = ";
+    cin >> c;
+
+    delta = powf(b, 2) - (4 * a * c);
+
+    if(a==0 || delta < 0) {
+        cout << "Ecuatia nu are solutii reale";
+    } else if (delta == 0) {
+        x1 = -(b / (2 * a));
+        cout << "Solutia ecuatiei este: x1 = x2 = " << x1;
+    } else {
+        x1 = (-b + sqrtf(delta)) / (2*a);
+        x2 = (-b - sqrtf(delta)) / (2*a);
+        cout << "Soluta ecuatiei este:" << endl;
+        cout << "x1 = " << x1 << endl;
+        cout << "x2 = " << x2 << endl;
+    }
+
+}
 
 //IS N PRIME?
 //int main () {
@@ -88,21 +105,21 @@ using namespace std;
 //}
 
 //afla de cate ori apare x intr-un sir
-int main () {
-
-    int n, x, i, p = 0;
-    cout << "x este ";
-    cin >> x;
-    //sir de numere cu 100 de pozitii
-    int a[100];
-
-    cout << "dimensiunea sirului: ";
-    cin >> n;
-
-    for (i=1; i<= n ; i++) {
-        cout << "a[" << i << "] = ";
-        cin >> a[i];
-        if (x == a[i]) p = p+1 ;
-    }
-    cout << "x apare de " << p << " ori";
-}
+//int main () {
+//
+//    int n, x, i, p = 0;
+//    cout << "x este ";
+//    cin >> x;
+//    //sir de numere cu 100 de pozitii
+//    int a[100];
+//
+//    cout << "dimensiunea sirului: ";
+//    cin >> n;
+//
+//    for (i=1; i<= n ; i++) {
+//        cout << "a[" << i << "] = ";
+//        cin >> a[i];
+//        if (x == a[i]) p = p+1 ;
+//    }
+//    cout << "x apare de " << p << " ori";
+//}
