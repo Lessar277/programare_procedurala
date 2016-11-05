@@ -10,6 +10,7 @@ using namespace std;
 //    return 0;
 //}
 
+//ecuatii de gradul I
 //int main () {
 //    float a, b, x;
 //    char r = 'y';
@@ -68,7 +69,7 @@ using namespace std;
 //
 //}
 
-//gaseste maximul dintr un sir
+//gaseste maximul dintr-un sir
 //int main () {
 //
 //    int n, i, max = 0;
@@ -86,7 +87,7 @@ using namespace std;
 //    cout << "Maximul acestui sir este" << max;
 //}
 
-//afla de cate ori apare x
+//afla de cate ori apare x intr-un sir
 int main () {
 
     int n, x, i, p = 0;
