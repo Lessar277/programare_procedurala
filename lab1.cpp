@@ -144,32 +144,112 @@ using namespace std;
 //}
 
 //maxim din matrice
-int main() {
-    int x, y, i, j, max = 0, count = 0;
-    int a[100][100];
-    cout << "Nr. linii: ";
-    cin >> x;
-    cout << "Nr. coloane: ";
-    cin >> y;
+//int main() {
+//    int x, y, i, j, max = 0, count = 0;
+//    int a[100][100];
+//    cout << "Nr. linii: ";
+//    cin >> x;
+//    cout << "Nr. coloane: ";
+//    cin >> y;
+//
+//    for (i=1; i<=x; i++) {
+//        for (j=1; j<=y; j++) {
+//            cout << "a[" << i << "][" << j << "] ";
+//            cin >> a[i][j];
+//            if (a[i][j] > max) {
+//                max = a[i][j];
+//            }
+//        }
+//    }
+//
+//    for (i=1; i<=x; i++) {
+//        for (j=1; j<=y; j++) {
+//            if (a[i][j] == max) {
+//                count++;
+//            }
+//        }
+//    }
+//
+//    cout << "max: " << max << endl;
+//    cout << "numarul apare de " << count << " ori";
+//}
 
-    for (i=1; i<=x; i++) {
-        for (j=1; j<=y; j++) {
-            cout << "a[" << i << "][" << j << "] ";
+//matrice
+//x - student x(n) -media pe student
+//y - disciplina - media pe disciplina
+//note - 0(absent) -10
+
+
+int main () {
+    float total, medie;
+    int i, j, absente, restante, nrMaterii, nrStudenti;
+    float a[100][100];
+
+    cout << "nr materii: ";
+    cin >> nrMaterii;
+    cout << "nr studenti: ";
+    cin >> nrStudenti;
+
+    for (i=1; i <= nrMaterii; i++ ) {
+        for (j=1; j<=nrStudenti; j++) {
+            cout << "Nota:";
             cin >> a[i][j];
-            if (a[i][j] > max) {
-                max = a[i][j];
-            }
         }
     }
 
-    for (i=1; i<=x; i++) {
-        for (j=1; j<=y; j++) {
-            if (a[i][j] == max) {
-                count++;
+    for (i=1; i<=nrMaterii; i++) {
+        total = 0;
+        absente = 0;
+        restante = 0;
+        for (j=1; j<=nrStudenti; j++) {
+            if (a[i][j] >= 1) {
+                total += a[i][j];
+            } else if (a[i][j] == 0) {
+                absente++;
+            }
+            if (a[i][j] < 5) {
+                restante++;
             }
         }
+        medie = total / nrStudenti;
+        cout << "Media pentru materia " << i << " este " << medie << endl;
+        cout << "Numarul de absente pentru  materia " <<  i << " este " << absente << endl;
+        cout << "Numarul de restante pentru  materia " <<  i << " este " << restante << endl;
+        cout << "************************" << endl;
+        a[i][nrStudenti + 1] = medie;
+        a[i][nrStudenti + 2] = restante;
+        a[i][nrStudenti + 3] = absente;
     }
 
-    cout << "max: " << max << endl;
-    cout << "numarul apare de " << count << " ori";
+    for (j=1; j<=nrStudenti; j++) {
+        total = 0;
+        absente = 0;
+        restante = 0;
+        for (i=1; i<=nrMaterii; i++) {
+            if (a[i][j] >= 1) {
+                total += a[i][j];
+            } else if (a[i][j] == 0) {
+                absente++;
+            }
+            if (a[i][j] < 5) {
+                restante++;
+            }
+        }
+
+        medie = total / nrMaterii;
+        cout << "Media pentru studentul " << j << " este " << medie << endl;
+        cout << "Numarul de absente pentru  studentul " <<  j << " este " << absente << endl;
+        cout << "Numarul de restante pentru  studentul " <<  j << " este " << restante << endl;
+
+        a[nrMaterii+1][j] = medie;
+        a[nrMaterii+2][j] = restante;
+        a[nrMaterii+3][j] = absente;
+    }
+
+    for (i=1; i<= nrMaterii + 3; i++) {
+        for (j=1; j<=nrStudenti+3; j++) {
+            cout << a[i][j] <<"\t";
+        }
+        cout << endl;
+    }
 }
