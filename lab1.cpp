@@ -180,76 +180,164 @@ using namespace std;
 //note - 0(absent) -10
 
 
+//int main () {
+//    float total, medie;
+//    int i, j, absente, restante, nrMaterii, nrStudenti;
+//    float a[100][100];
+//
+//    cout << "nr materii: ";
+//    cin >> nrMaterii;
+//    cout << "nr studenti: ";
+//    cin >> nrStudenti;
+//
+//    for (i=1; i <= nrMaterii; i++ ) {
+//        for (j=1; j<=nrStudenti; j++) {
+//            cout << "Nota:";
+//            cin >> a[i][j];
+//        }
+//    }
+//
+//    for (i=1; i<=nrMaterii; i++) {
+//        total = 0;
+//        absente = 0;
+//        restante = 0;
+//        for (j=1; j<=nrStudenti; j++) {
+//            if (a[i][j] >= 1) {
+//                total += a[i][j];
+//            } else if (a[i][j] == 0) {
+//                absente++;
+//            }
+//            if (a[i][j] < 5) {
+//                restante++;
+//            }
+//        }
+//        medie = total / nrStudenti;
+//        cout << "Media pentru materia " << i << " este " << medie << endl;
+//        cout << "Numarul de absente pentru  materia " <<  i << " este " << absente << endl;
+//        cout << "Numarul de restante pentru  materia " <<  i << " este " << restante << endl;
+//        cout << "************************" << endl;
+//        a[i][nrStudenti + 1] = medie;
+//        a[i][nrStudenti + 2] = restante;
+//        a[i][nrStudenti + 3] = absente;
+//    }
+//
+//    for (j=1; j<=nrStudenti; j++) {
+//        total = 0;
+//        absente = 0;
+//        restante = 0;
+//        for (i=1; i<=nrMaterii; i++) {
+//            if (a[i][j] >= 1) {
+//                total += a[i][j];
+//            } else if (a[i][j] == 0) {
+//                absente++;
+//            }
+//            if (a[i][j] < 5) {
+//                restante++;
+//            }
+//        }
+//
+//        medie = total / nrMaterii;
+//        cout << "Media pentru studentul " << j << " este " << medie << endl;
+//        cout << "Numarul de absente pentru  studentul " <<  j << " este " << absente << endl;
+//        cout << "Numarul de restante pentru  studentul " <<  j << " este " << restante << endl;
+//
+//        a[nrMaterii+1][j] = medie;
+//        a[nrMaterii+2][j] = restante;
+//        a[nrMaterii+3][j] = absente;
+//    }
+//
+//    for (i=1; i<= nrMaterii + 3; i++) {
+//        for (j=1; j<=nrStudenti+3; j++) {
+//            cout << a[i][j] <<"\t";
+//        }
+//        cout << endl;
+//    }
+//}
+
+
+//functii
+
+//ecuatii de gradul I
+//void ecuatiegrad1 (float x, float y) {
+//    if (x == 0) {
+//        cout << "Ecuatia nu are solutie";
+//    } else {
+//        cout << "raspunsul este: ";
+//        cout << -y/x;
+//        cout << '\n';
+//    }
+//}
+//
+//int main() {
+//    float a, b;
+//    char r = 'y';
+//
+//    while (r == 'y') {
+//        cout << "a = ";
+//        cin >> a;
+//        cout << "b = ";
+//        cin >> b;
+//        ecuatiegrad1(a, b);
+//        cout << "Continue? (y/n): ";
+//        cin >> r;
+//        cout << '\n';
+//    }
+//}
+
+//cmmdc cel mai mare divizor comun
+//float cmmdc (float m, float n) {
+//    while (n !=m) {
+//        if (n>m) {
+//            n = n-m;
+//        } else {
+//            m = m-n;
+//        }
+//    }
+//    return n;
+//}
+//
+//int main () {
+//    int v[0], n, i;
+//    cout << "introduceti dimensiunea sirului: ";
+//    cin >> n;
+//    for (i=1; i <=n; i++) {
+//        cout << "v[" << i << "]=";
+//        cin >> v[i];
+//    }
+//    for (i=1; i < n; i++) {
+//        cout << cmmdc(v[i], v[i+1]) << "\n";
+//    }
+//};
+
+//se introduce un numar n, sa se arate cel mai mare numar care se poate forma cu cifrele lui
+
+float descSort(int v[100], int n) {
+    int i, j, aux, m = 0;
+    for (i=1; i < n; i++) {
+        for (j=i+1; j<=n; j++) {
+            if (v[i] < v[j]) {
+                aux = v[i];
+                v[i] = v[j];
+                v[j] = aux;
+            }
+        }
+    }
+    for (i=1; i<=n; i++) {
+        m = m * 10 + v[i];
+    }
+    return m;
+}
+
 int main () {
-    float total, medie;
-    int i, j, absente, restante, nrMaterii, nrStudenti;
-    float a[100][100];
+    int x, l=1, v[100];
+    cout << "introduceti numarul: ";
+    cin >> x;
 
-    cout << "nr materii: ";
-    cin >> nrMaterii;
-    cout << "nr studenti: ";
-    cin >> nrStudenti;
-
-    for (i=1; i <= nrMaterii; i++ ) {
-        for (j=1; j<=nrStudenti; j++) {
-            cout << "Nota:";
-            cin >> a[i][j];
-        }
+    while (x != 0) {
+        v[l] = x%10;
+        l = l + 1;
+        x=x/10;
     }
 
-    for (i=1; i<=nrMaterii; i++) {
-        total = 0;
-        absente = 0;
-        restante = 0;
-        for (j=1; j<=nrStudenti; j++) {
-            if (a[i][j] >= 1) {
-                total += a[i][j];
-            } else if (a[i][j] == 0) {
-                absente++;
-            }
-            if (a[i][j] < 5) {
-                restante++;
-            }
-        }
-        medie = total / nrStudenti;
-        cout << "Media pentru materia " << i << " este " << medie << endl;
-        cout << "Numarul de absente pentru  materia " <<  i << " este " << absente << endl;
-        cout << "Numarul de restante pentru  materia " <<  i << " este " << restante << endl;
-        cout << "************************" << endl;
-        a[i][nrStudenti + 1] = medie;
-        a[i][nrStudenti + 2] = restante;
-        a[i][nrStudenti + 3] = absente;
-    }
-
-    for (j=1; j<=nrStudenti; j++) {
-        total = 0;
-        absente = 0;
-        restante = 0;
-        for (i=1; i<=nrMaterii; i++) {
-            if (a[i][j] >= 1) {
-                total += a[i][j];
-            } else if (a[i][j] == 0) {
-                absente++;
-            }
-            if (a[i][j] < 5) {
-                restante++;
-            }
-        }
-
-        medie = total / nrMaterii;
-        cout << "Media pentru studentul " << j << " este " << medie << endl;
-        cout << "Numarul de absente pentru  studentul " <<  j << " este " << absente << endl;
-        cout << "Numarul de restante pentru  studentul " <<  j << " este " << restante << endl;
-
-        a[nrMaterii+1][j] = medie;
-        a[nrMaterii+2][j] = restante;
-        a[nrMaterii+3][j] = absente;
-    }
-
-    for (i=1; i<= nrMaterii + 3; i++) {
-        for (j=1; j<=nrStudenti+3; j++) {
-            cout << a[i][j] <<"\t";
-        }
-        cout << endl;
-    }
+    cout << "nr maxim format este " << descSort(v, l-1);
 }
