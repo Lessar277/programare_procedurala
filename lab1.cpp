@@ -311,33 +311,118 @@ using namespace std;
 
 //se introduce un numar n, sa se arate cel mai mare numar care se poate forma cu cifrele lui
 
-float descSort(int v[100], int n) {
-    int i, j, aux, m = 0;
-    for (i=1; i < n; i++) {
-        for (j=i+1; j<=n; j++) {
-            if (v[i] < v[j]) {
-                aux = v[i];
-                v[i] = v[j];
-                v[j] = aux;
-            }
-        }
-    }
+//float descSort(int v[100], int n) {
+//    int i, j, aux, m = 0;
+//    for (i=1; i < n; i++) {
+//        for (j=i+1; j<=n; j++) {
+//            if (v[i] < v[j]) {
+//                aux = v[i];
+//                v[i] = v[j];
+//                v[j] = aux;
+//            }
+//        }
+//    }
+//    for (i=1; i<=n; i++) {
+//        m = m * 10 + v[i];
+//    }
+//    return m;
+//}
+//
+//int main () {
+//    int x, l=1, v[100];
+//    cout << "introduceti numarul: ";
+//    cin >> x;
+//
+//    while (x != 0) {
+//        v[l] = x%10;
+//        l = l + 1;
+//        x=x/10;
+//    }
+//
+//    cout << "nr maxim format este " << descSort(v, l-1);
+//}
+
+
+//Numere prime in matrici
+//bool isPrime (int n) {
+//    int i;
+//    bool prime = true;
+//    for (i=2; i <=n/2; i++) {
+//        if (n % i == 0) {
+//            prime = false;
+//            break;
+//        }
+//    }
+//    return prime;
+//}
+//
+//int main () {
+//    int x, y, i, j, count = 0;
+//    int a[100][100];
+//    cout << "Nr. linii: ";
+//    cin >> x;
+//    cout << "Nr. coloane: ";
+//    cin >> y;
+//
+//    for (i=1; i<=x; i++) {
+//        for (j=1; j<=y; j++) {
+//            cout << "a[" << i << "][" << j << "]";
+//            cin >> a[i][j];
+//        }
+//    }
+//
+//    for (i=1; i<=x; i++) {
+//        for (j=1; j<=y; j++) {
+//            if (isPrime(a[i][j])) {
+//                count++;
+//            }
+//        }
+//        cout << "sunt " << count << " numere prime pe linia " << i << '\n';
+//        count = 0;
+//    }
+//}
+
+//se da un vector  3 6 7 5 1 2
+//sa se afiseze toate permutarile lui si verifica daca vreuna din permutari e sortata
+//UNFINISHED BUSINESS
+
+//int main () {
+//    int v[100], n, i, j, aux;
+//    cout << "dimensiunea sirului: ";
+//    cin >> n;
+//
+//    for (i = 1; i <= n; i++) {
+//        cout << "v[" << i << "] = ";
+//        cin >> v[i];
+//    }
+//    cout << "permutarile sunt: \n";
+//    for (i = 1; i < n; i++) {
+//        aux = v[1];
+//        for (j = 2; j <=n; j++) {
+//            v[j-i] = v[j];
+//        }
+//        v[n] = aux;
+//
+//        for (j = 1; j < n; j++) {
+//            cout << v[j];
+//        }
+//    }
+//
+//}
+
+//
+
+int factorial (int n) {
+    int i, p=1;
     for (i=1; i<=n; i++) {
-        m = m * 10 + v[i];
+        p = p*i;
     }
-    return m;
+    return p;
 }
 
 int main () {
-    int x, l=1, v[100];
-    cout << "introduceti numarul: ";
-    cin >> x;
-
-    while (x != 0) {
-        v[l] = x%10;
-        l = l + 1;
-        x=x/10;
-    }
-
-    cout << "nr maxim format este " << descSort(v, l-1);
+    int n;
+    cout << "n = ";
+    cin >> n;
+    cout << n << " factorial este "<< factorial(n);
 }
