@@ -412,17 +412,4 @@ using namespace std;
 
 //
 
-int factorial (int n) {
-    int i, p=1;
-    for (i=1; i<=n; i++) {
-        p = p*i;
-    }
-    return p;
-}
-
-int main () {
-    int n;
-    cout << "n = ";
-    cin >> n;
-    cout << n << " factorial este "<< factorial(n);
-}
+//
