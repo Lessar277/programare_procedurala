@@ -1,6 +1,4 @@
-//
-// Created by Catalin on 14/05/17.
-//
+
 
 #include <iostream>
 #include <string.h>
