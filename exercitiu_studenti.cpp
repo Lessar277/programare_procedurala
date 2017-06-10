@@ -24,7 +24,9 @@ float calcul_medie(int a, int b, int c) {
 
 int calcul_varsta() {};
 int sortare_alfabetica() {};
-int sortare_medie() {};
+int sortare_medie() {
+    
+};
 
 int main () {
     int x, n=0;
