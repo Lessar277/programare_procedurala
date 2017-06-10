@@ -1,6 +1,3 @@
-////
-//// Created by Catalin on 02/04/17.
-////
 //
 //#include <iostream>
 //#include <string.h>
